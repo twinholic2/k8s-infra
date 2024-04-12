@@ -14,7 +14,8 @@ provider "aws" {
 module "cluster" {
   source = "../../modules/cluster"
 
-  cluster_name = var.cluster_name
+  # cluster_name = var.cluster_name
+  cluster_name = "kuber-demo"
   env = var.env
   cluster_version = var.cluster_version
   subnets = concat(
