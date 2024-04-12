@@ -5,7 +5,7 @@ terraform {
     organization = "osh-project"
 
     workspaces {
-      name = "k8s-infra_prod_cluster"
+      name = "k8s-infra_cluster"
     }
   }
 }

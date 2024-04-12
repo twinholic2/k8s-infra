@@ -13,7 +13,7 @@ data "terraform_remote_state" "infra" {
     hostname = "app.terraform.io"
     organization = "osh-project"
     workspaces = {
-      name = "common-infra_prod_vpc"
+      name = "common-infra_vpc"
     }
   }
 }
