@@ -17,7 +17,7 @@ module "worker" {
   name = "worker"
   cluster_version = var.k8s_version
   cluster_name = data.terraform_remote_state.cluster.outputs.cluster_name
-  worker_security_group_id = data.terraform_remote_state.worker.outputs.worker_security_group_id
+  worker_security_group_id = data.terraform_remote_state.cluster.outputs.worker_security_group_id
   instance_type = "t3.medium"
      #ec2 describe-images  --filters "Name=name,Values=amazon-eks-node-*" --query 'Images[*].[ImageId, Name]' --region ap-northeast-2
   # image_id = "ami-0cf0af1d11a0627c5" #amazon-eks-node-1.28-v20240307
