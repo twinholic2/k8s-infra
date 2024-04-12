@@ -21,7 +21,7 @@ resource "kubernetes_service_account" "alb_service_account" {
 }
 
 data "aws_iam_openid_connect_provider" "cluster_provider" {
-  arn = "${data.aws_iam_openid_connect_provider.cluster_provider.arn}"
+  arn = "arn:aws:iam::682935334295:oidc-provider/oidc.eks.ap-northeast-2.amazonaws.com/id/32239BE4C9E47C7C658BB9B219D8DD86"
 }
 
 
