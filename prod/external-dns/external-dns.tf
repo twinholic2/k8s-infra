@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "ap-northeast-2"
+}
+
 provider "kubernetes" {
   host                   =  data.terraform_remote_state.cluster.outputs.cluster_endpoint
   cluster_ca_certificate =  base64decode(data.terraform_remote_state.cluster.outputs.cluster_certificate)
