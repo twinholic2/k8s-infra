@@ -1,26 +1,26 @@
 data "terraform_remote_state" "infra" {
-  backend = "local"
+  backend = "remote"
 
   config = {
-    path = "../../../vpc-infra/prod/vpc/terraform.tfstate"
+    hostname = "app.terraform.io"
+    organization = "osh-project"
+    workspaces = {
+      name = "common-infra_vpc"
+    }
   }
 }
 
 data "terraform_remote_state" "cluster" {
-  backend = "local"
+  backend = "remote"
 
   config = {
-    path = "../../../k8s-infra/prod/cluster/terraform.tfstate"
+    hostname = "app.terraform.io"
+    organization = "osh-project"
+    workspaces = {
+      name = "k8s-infra_cluster"
+    }
   }
 }
-
-# data "terraform_remote_state" "role" {
-#   backend = "local"
-
-#   config = {
-#     path = "../../../k8s-infra/prod/iam/terraform.tfstate"
-#   }
-# }
 
 data "aws_eks_cluster_auth" "cluster" {
   name = data.terraform_remote_state.cluster.outputs.cluster_id

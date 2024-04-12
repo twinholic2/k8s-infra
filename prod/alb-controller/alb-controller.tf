@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "ap-northeast-2"
+}
+
 provider "helm" {
   kubernetes {
     host                   =  data.terraform_remote_state.cluster.outputs.cluster_endpoint
