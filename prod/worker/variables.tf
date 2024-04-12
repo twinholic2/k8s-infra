@@ -32,6 +32,7 @@ variable "additional_userdata" {
   default = ""
 }
 
+
 variable "workergroup" {
   default = "kuber"
 }
