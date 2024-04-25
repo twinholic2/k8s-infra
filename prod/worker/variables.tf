@@ -1,7 +1,6 @@
 variable "key_name" {
     default = "my_key_osh"
     type = string
-  
 }
 
 variable "k8s_version" {
