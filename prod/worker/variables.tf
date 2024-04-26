@@ -29,6 +29,7 @@ variable "additional_userdata" {
 # sudo ./aws/install
 # EOT
   default = ""
+  type = string
 }
 
 
