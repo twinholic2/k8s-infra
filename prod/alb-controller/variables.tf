@@ -4,6 +4,7 @@ variable "name" {
 
 variable "namespace" {
     default = "kube-system"
+    type = string
 }
 
 variable "sa_name" {
