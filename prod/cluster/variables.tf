@@ -9,6 +9,7 @@ variable "cluster_version" {
 
 variable "env" {
   default = "prod"
+  type = string
 }
 
 variable "AWS_ACCESS_KEY_ID" {
