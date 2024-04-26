@@ -30,7 +30,7 @@ module "worker" {
    pre_userdata = var.pre_userdata
   additional_userdata = var.additional_userdata
 
-    asg_desired_capacity = 3
+    asg_desired_capacity = 2
   asg_min_size         = 1
   asg_max_size         = 3 
 

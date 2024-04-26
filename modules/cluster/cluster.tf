@@ -66,7 +66,7 @@ resource "aws_security_group" "cluster" {
      tags = merge (
         {
             "Name" = "eks-cluster-sg-${var.cluster_name}-${var.env}",
-            "aws:eks:cluster-name" = "${var.cluster_name}",
+            # "aws:eks:cluster-name" = "${var.cluster_name}",
             "kubernetes.io/cluster/${var.cluster_name}" = "owned"
         },
         var.tags
