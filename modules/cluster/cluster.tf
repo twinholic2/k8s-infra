@@ -221,6 +221,36 @@ resource "aws_security_group_rule" "worker_ingress_cluster_kubelet" {
 }
 
 
+####################################
+# Security for private db subnet a,c  
+####################################
+resource "aws_security_group" "db" {
+  name        = "my-oshyun-db"
+  description = "Security group for all nodes in the cluster"
+  vpc_id      = var.vpc_id
+
+  tags = merge(
+    {
+        "Name" = format(
+            "%s-db",
+            "mysql"
+        )
+    },
+    var.tags,
+  )
+}
+
+#worker노드로부터 cluster private access 가능하도록 함
+resource "aws_security_group_rule" "db-private-access" {
+  description              = "Connect to mysql db"
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.db.id
+  source_security_group_id = aws_security_group.worker.id
+  from_port                = 3306
+  to_port                  = 3306
+  type                     = "ingress"
+}
+
 
 #########################
 # EKS IAM Role 설정
